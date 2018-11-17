@@ -6,6 +6,8 @@
 *you can launch the program with "yarn dev"'s command*
  
  
+**Description of the case **:
+ 
 
 I'm trying to fetch the URL entered in the browser to make some redirect in my NextJS custom server. This error occurs only in dev mode, no in production mode, so is it normal ? there is some modification to do on the devmode to handle that ?
 
