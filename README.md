@@ -1,9 +1,9 @@
 # hoco_next_launch
 
- *the server is linked to localhost:3200.
+ *the server is linked to localhost:3200.*
  
  
- you can launch the program with "yarn dev"'s command*
+*you can launch the program with "yarn dev"'s command*
  
  
 
