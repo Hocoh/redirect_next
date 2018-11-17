@@ -1,0 +1,131 @@
+.grid_wrapper{ 
+    min-width: 100vw;
+    box-sizing: border-box;  
+}
+
+
+.layout_template_grid{ 
+    display : grid; 
+    margin: auto;
+    width: 100%;
+    min-height: 100%;
+    grid-template-areas: 
+        "top_layout "
+        "children"
+        "footer_layout"; 
+}
+
+
+.top_layout{
+    grid-area: top_layout;
+  
+}
+
+.children{ 
+    font-family:"TimeSS";
+    font-size: "23px";
+    width: 100%;
+    grid-area: children;  
+    margin-top: 3.5vh;
+}
+
+.footer_layout{ 
+    grid-area: footer_layout;
+    margin-top: 15vh; 
+}
+
+
+@media only screen and (max-width:768px){ 
+
+    .layout_template_grid{ 
+        display : grid; 
+        margin: auto;
+        width: 100%;
+        min-height: 100%;
+        grid-template-areas: 
+            "top_layout "
+            "headline"
+            "children"
+            "footer_layout"; 
+    }    
+     
+    .top_layout{ 
+        display: none;
+    }
+
+    .minimal_headbar{ 
+        grid-area: top_layout;
+        display: block !important;
+    }
+
+    .headline{ 
+        display: block ;
+        grid-area: headline;
+        font-size:20px;
+        padding-bottom: 5vh;
+        text-align: center;
+    }
+
+    .children{  
+        grid-area: children; 
+        margin:0;
+    } 
+
+    .body_hidden{
+        transition: all 0.5s linear; 
+        position:relative; 
+        left: 50vw; 
+    opacity: .6;
+    filter: alpha(opacity=60);
+        
+
+    }
+
+    .body_displayed{   
+        position:relative; 
+        transition: all 0.5s linear;  
+        left:0;
+    }
+    .side_menu{ 
+        display: inherit;
+        display: block !important;
+    }
+     
+    .side_menu_displayed{ 
+        display: inherit;
+        display: block;
+        position: fixed;
+        top:0;
+        left: 0; 
+        height: 120vh;
+        width: 70vw;    
+        background-color: aqua;
+        transition: all 0.5s linear;
+    }
+    .side_menu_hidden{ 
+        display: inherit;
+        display: block;
+        position: fixed;
+        top:0;
+        left: -525px;
+        width: 70vw; 
+        background-color: greenyellow;
+        transition: all 0.5s linear;
+    }
+    
+}
+
+/***** SIDEMENU *****/
+
+
+.side_menu{ 
+    display: none;
+}
+.top_layout_short_screen{
+    display: none;
+}
+
+.headline{ 
+    display: none;
+}
+

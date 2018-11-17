@@ -1,0 +1,136 @@
+@font-face {
+    font-family: Moonlight;
+    src: url(/static/assets/choiceFonts/Moonlights_on_the_Beach.ttf);
+}
+
+@font-face {
+    font-family: Nenuphar;
+    src: url(/static/assets/choiceFonts/Nenuphar_of_Venus.otf) format("opentype");
+}
+
+
+@font-face {
+    font-family: Prida;
+    src: url(/static/assets/choiceFonts/Prida01.otf) format("opentype");
+}
+
+
+@font-face {
+    font-family: TimeSS;
+    src: url(/static/assets/choiceFonts/TimeSS.ttf);
+}
+
+*{ 
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, button, 
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}html {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+ }
+ 
+ body {
+	margin: 0px;
+	min-height: 100%;
+	width: 100%;
+	font-family: "TimeSS";
+	font-size: 23px;
+ }
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a{ 
+	text-decoration: none;
+	color: grey;
+  }
+  a:active{ 
+	border:none; 
+  }
+ 
+  a:visited{ 
+	color:grey;
+  }
+
+  a:hover{ 
+	  color: black;
+  }
+  
+h1{ 
+	font-family: "Moonlight"; 
+	font-size: 120px;
+}
+
+h2{ 
+	font-family: "TimeSS"; 
+	font-size: 50px;
+	color: rgb(5, 168, 168);
+}
+
+h3{ 
+	font-family: "TimeSS"; 
+	font-size: 25px; 
+	color:rgb(125, 125, 125);
+}
+
+/* p{ 
+	display: block;
+	margin-top: 3vh;
+}
+  */
+
+button{ 
+	border: solid;
+	border-width: 1px;
+	border-radius: 15px; 
+	padding:11px;
+	background-color: rgb(250,247, 245);
+}
+
+input{ 
+	background-color: rgb(250,247, 245);
+}
+ 
+
+textarea{ 
+	background-color: rgb(250,247, 245);
+}

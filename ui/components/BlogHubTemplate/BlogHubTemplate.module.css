@@ -1,0 +1,123 @@
+.blog_template_grid{ 
+width: 80%;
+margin:auto;
+    margin-top: 25vh;
+    display : grid; 
+    grid-template-areas: 
+        "posts_grid"
+        "pagination";
+    grid-row-gap: 5vh; 
+    justify-content: center;
+}
+
+.posts_grid{ 
+    grid-area: posts_grid;
+    display : grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-column-gap: 6vw;
+    grid-row-gap: 7vh;
+    /* display: flex;
+    justify-content: flex-start;
+    align-items: center;  */
+}
+
+
+/* POST CONTAINERS  */
+
+.post_container{ 
+    display: grid; 
+    grid-template-areas: 
+        "image"
+        "category"
+        "headline";
+    grid-template-rows: auto auto 1fr ;
+    grid-row-gap: 1vh; 
+    max-width: 22vw;
+    max-height: 40vh;
+    cursor: pointer; 
+}
+
+.post_image{   
+    grid-area: image;
+    /* max-width: 10%; */
+    max-width: 18vw;
+    max-height: 20vh;
+    transition: all 0.5s;
+}
+
+.post_image:hover{   
+  /* filter: brightness(150%); */
+  filter: contrast(150%); 
+  opacity: 0.75;
+}
+.post_category{ 
+    grid-area : category;
+    font-size: 20px; 
+}
+
+.post_category:hover{  
+    font-size: 20px; 
+    text-decoration: underline;
+}
+
+
+.post_headline{ 
+    grid-area: headline; 
+    line-height: 98.5%;
+    font-size: 20px;
+    color:rgb(82, 82, 82);
+    text-align: left;
+}
+
+.post_headline:hover{ 
+   /* color: rgb(55, 172, 1) */
+    color:rgb(0, 0, 0);
+}
+
+
+.pagination{ 
+    grid-area: pagination;
+    width: 70%;
+    margin: auto; 
+}
+
+@media only screen and (max-width:768px){ 
+    .posts_grid{ 
+        /* grid-area: posts_grid;
+        display : grid; 
+        grid-template-rows: 1fr; 
+        grid-column-gap: 6vw;
+        grid-row-gap: 7vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+        margin-bottom: 16vh;
+    }
+
+    .post_container{ 
+        display: grid; 
+        grid-template-areas: 
+            "image"
+            "category"
+            "headline";
+        grid-template-rows: auto auto 1fr ;
+        grid-row-gap: 1vh; 
+        max-width: 90vw;
+        max-height: 40vh;
+        cursor: pointer; 
+       
+    }
+
+    
+    .post_image{   
+        grid-area: image;
+        /* max-width: 10%; */
+        max-width: 80vw;
+        max-height: 30vh;
+        transition: all 0.5s;       
+    }
+    
+    
+}

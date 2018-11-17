@@ -1,0 +1,36 @@
+.page{ 
+  cursor:pointer; 
+  margin: auto; 
+  /* border-radius: 3px; */
+  min-width: 2vw;
+  display: flex;
+  justify-content: center;
+  padding : 4px;
+  /* margin-right: 2vw;  */
+}
+
+.page:hover{ 
+    background-color:rgb(5, 168, 168);
+    color: white;
+}
+
+
+.current{ 
+    padding : 4px;
+    /* border-radius: 3px; */
+    background-color:rgb(5, 168, 168);
+    margin: auto; 
+    min-width: 2vw;
+    display: flex;
+    justify-content: center;
+    color: white;
+    /* margin-right: 2vw;  */
+}
+
+.pagination_main_list{ 
+    width: 30%; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center; 
+}

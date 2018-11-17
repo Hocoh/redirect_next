@@ -1,0 +1,139 @@
+.contact_layout_grid{ 
+    display: grid; 
+    min-width: 100%;
+    min-height: 100vh;
+    grid-template-areas: 
+        "custom_top"
+        "children"
+        "newsletter_cta"
+        "footer_layout";
+    justify-content: center; 
+    margin: auto; 
+    grid-template-rows: 50px minmax(40vh, 100%) 1fr 1fr; 
+    grid-template-columns: 50% 50% ; 
+   
+}
+
+.post_custom_top{ 
+    grid-area: custom_top;
+    background-color: rgb(250,247, 245);
+
+}
+
+.children{  
+    grid-area: children; 
+    width: 100%;
+    justify-self: center; 
+    margin-top: 25vh;
+    font-family:"TimeSS";
+    font-size: "23px";
+    margin-bottom: 15vh; 
+}
+
+
+.newsletter_cta{ 
+    grid-area: newsletter_cta;
+    width: 80%;
+    margin-left:15vw; 
+    margin-bottom: 10vh; 
+    border: solid;
+    padding: 5px; 
+    
+}
+
+.newsletter_cta input { 
+    background-color: white;
+}
+.footer_layout{ 
+    grid-area: footer_layout;
+}
+
+
+
+@media only screen and (max-width: 1100px) { 
+ 
+
+    .layout_template_grid{ 
+        display : grid; 
+        margin: auto;
+        width: 100vw;
+        min-height: 100vh;
+        grid-template-areas: 
+            "top_layout                  "
+            "headline"
+            "home_speech"
+            "children                  "
+            "bottom_layout              "; 
+    }
+
+
+    .custom_top{ 
+        display:none;
+    }
+
+ 
+
+    .top_layout_short_screen{
+        display: inline-block !important;
+        grid-area: top_layout; 
+        width: 100w; 
+    }
+    
+
+    .body_hidden{
+        transition: all 0.5s linear;  
+        left: 50vw; 
+    opacity: .6;
+    filter: alpha(opacity=60);
+        
+
+    }
+
+    .body_displayed{     
+        transition: all 0.5s linear;  
+        left:0;
+    }
+    .side_menu{  
+        display: block !important;
+    }
+     
+    .side_menu_displayed{  
+        position: fixed;
+        top:0;
+        left: 0; 
+        height: 100vh;
+        width: 70vw;    
+        background-color: aqua;
+        transition: all 0.5s linear;
+    }
+    .side_menu_hidden{   
+        position: fixed;
+        top:0;
+        left: -700px;
+        width: 70vw;  
+        transition: all 0.5s linear;
+    }
+
+    .footer_layout{ 
+        grid-area: footer_layout;
+        font-size: 23px;
+    }
+        
+}
+
+/***** SIDEMENU *****/
+
+
+ 
+
+.side_menu{ 
+    display: none;
+}
+.top_layout_short_screen{
+    display: none;
+}
+
+.headline{ 
+    display: none;
+}
+
