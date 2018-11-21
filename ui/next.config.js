@@ -1,9 +1,10 @@
-module.exports={ 
-  exportPathMap: () => ({ 
-      "/": {page: '/'}
-  })
-}
+module.exports = {
+  exportPathMap: () => ({
+    '/': { page: '/' },
+  }),
+};
 
 const	withCss	=	require('@zeit/next-css');
 const	withImages	=	require('next-images');
-module.exports	=	withImages(withCss({cssModules: true}));
+
+module.exports	=	withImages(withCss({ cssModules: true }));

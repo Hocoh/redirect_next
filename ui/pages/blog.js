@@ -1,23 +1,17 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import axios from "axios"
-import exenv from "exenv"
-
 // import BlogTemplate from "../components/BlogTemplate/BlogTemplate"
 import ContainerBlogHubTemplate from "../components/BlogHubTemplate/BlogHubTemplate"
 import storeWrapper from "../HOC/storeWrapper/storeWrapper"
-import {connect} from 'react-redux';
-
-import withServerProps from "../HOC/withServerProps/withServerProps"
+import { connect } from 'react-redux';
 
 
-import { 
-    // blog
-    setBlogPageTargetedAction,
-    setBlogPageTotalAction,
-    setPostsFetchedAction, 
-    clearBlogPageTargetedAction
-   
-}  from "../state/actions";
+import {
+  clearBlogPageTargetedAction,
+  setBlogPageTargetedAction,
+  setBlogPageTotalAction,
+  setPostsFetchedAction
+} from "../state/actions";
 
 
 class Blog extends Component {
@@ -31,43 +25,44 @@ class Blog extends Component {
     count:"",
     currentPage:""
   }
- 
 
-  componentDidMount(){ 
-    
-    var pageTargeted = window.location.pathname.substr(11) ; 
+
+  componentDidMount(){
+
+    var pageTargeted = decodeURIComponent(window.location.pathname).substr(11) ;
     pageTargeted = Number(pageTargeted)
-    pageTargeted === 0 ? pageTargeted = 1 : null; 
-    this.props.setBlogPageTargetedAction(pageTargeted) 
-  
-    let scope = this; 
-        axios.get(`https://hoco-server.herokuapp.com/blog/page/"${pageTargeted}"`)
-        .then(function (res) { 
+    pageTargeted === 0 ? pageTargeted = 1 : null;
+    this.props.setBlogPageTargetedAction(pageTargeted)
+
+    const url = decodeURIComponent(`https://hoco-server.herokuapp.com/blog/page/"${pageTargeted}"`)
+    let scope = this;
+        axios.get(url)
+        .then(function (res) {
             var {postsTotal, posts} =  res.data;
             // var currentPage = window.location.pathname.substr(11);
-            var pageTotal; 
+            var pageTotal;
             postsTotal <= 8  ? pageTotal =1: pageTotal = (postsTotal /8);
-            pageTotal = Math.ceil(pageTotal);    
- 
+            pageTotal = Math.ceil(pageTotal);
+
             scope.props.setBlogPageTotalAction(pageTotal)
             scope.props.setPostsFetchedAction(posts)
-            // this.props.setPostFetchedAction() 
+            // this.props.setPostFetchedAction()
         })
         .catch(function (error) {
              (error);
-        });    
+        });
   }
-  
-  componentWillUnmount = () => {   
+
+  componentWillUnmount = () => {
     this.props.clearBlogPageTargetedAction()
   }
-  
+
 
 
   render() {
     return (
         <div>
-            <ContainerBlogHubTemplate/>         
+            <ContainerBlogHubTemplate/>
         </div>
     )
   }
@@ -81,14 +76,14 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = {  
+const mapDispatchToProps = {
 
   // set blog posts data
-  setBlogPageTargetedAction, 
-  setBlogPageTotalAction, 
-  setPostsFetchedAction, 
+  setBlogPageTargetedAction,
+  setBlogPageTotalAction,
+  setPostsFetchedAction,
 
-  // clear blog post targeted => return to undefined 
+  // clear blog post targeted => return to undefined
   clearBlogPageTargetedAction
 }
 

@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
 const Header = ({ siteTitle }) => (
   <div>
@@ -7,12 +7,12 @@ const Header = ({ siteTitle }) => (
       <h1>
         <Link
           to="/"
-             >
+        >
           {siteTitle}
         </Link>
       </h1>
     </div>
   </div>
-)
+);
 
-export default Header
+export default Header;

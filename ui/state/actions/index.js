@@ -1,17 +1,17 @@
-import { 
-    
-    setBlogPageTargetedAction,
-    setBlogPageTotalAction,
-    setPostsFetchedAction, 
+import {
 
-    clearBlogPageTargetedAction
-} from "./blogActions"
+  setBlogPageTargetedAction,
+  setBlogPageTotalAction,
+  setPostsFetchedAction,
 
-export { 
-    // blog
-    setBlogPageTargetedAction,
-    setBlogPageTotalAction,
-    setPostsFetchedAction,
-    clearBlogPageTargetedAction,
+  clearBlogPageTargetedAction,
+} from './blogActions';
 
-}
+export {
+  // blog
+  setBlogPageTargetedAction,
+  setBlogPageTotalAction,
+  setPostsFetchedAction,
+  clearBlogPageTargetedAction,
+
+};
