@@ -1,65 +1,61 @@
-import { Component } from 'react'
-import storeWrapper from "../../../../HOC/storeWrapper/storeWrapper"
+import { Component } from 'react';
 import { connect } from 'react-redux';
-import style from "./Pagination.module.css";
+import exenv from 'exenv';
+import Router from 'next/router';
+import storeWrapper from '../../../../HOC/storeWrapper/storeWrapper';
+import style from './Pagination.module.css';
 
-import exenv from "exenv"
-import PaginationMainContainer from "./PaginationMain/PaginationMain";
-import PaginationDetailsContainer from "./PaginationDetails/PaginationDetails";
-import Router from "next/router";
+import PaginationMainContainer from './PaginationMain/PaginationMain';
+import PaginationDetailsContainer from './PaginationDetails/PaginationDetails';
 
 class Pagination extends Component {
-
     changePage= (pageTargeted) => {
-        // window.location.pathname = `blog/page/${pageTargeted}`
-      Router.push(decodeURIComponent(`blog/page/${pageTargeted}`))
-
+      // window.location.pathname = `blog/page/${pageTargeted}`
+      Router.push(decodeURIComponent(`blog/page/${pageTargeted}`));
     }
 
-    firstPage = ()  => {
-        if(this.props.blog.pageTotal > 5 && (this.props.blog.pageTargeted - 1) > 2){
-        return <div id={style.bounday_first} className={style.pagination_boundaries} onClick={ () =>  this.changePage(1)}>  ◀ first </div>
-    }}
+    firstPage = () => {
+      if (this.props.blog.pageTotal > 5 && (this.props.blog.pageTargeted - 1) > 2) {
+        return <div id={style.bounday_first} className={style.pagination_boundaries} onClick={ () => this.changePage(1)}>  ◀ first </div>;
+      }
+    }
 
-    lastPage  = ()  => {
-        if(this.props.blog.pageTotal > 5 && (this.props.blog.pageTotal - this.props.blog.pageTargeted) > 2){
-        return <div  id={style.bounday_last} className={style.pagination_boundaries} onClick={ () =>  this.changePage(this.props.blog.pageTotal)} > last ▶ </div>
-    }}
+    lastPage = () => {
+      if (this.props.blog.pageTotal > 5 && (this.props.blog.pageTotal - this.props.blog.pageTargeted) > 2) {
+        return <div id={style.bounday_last} className={style.pagination_boundaries} onClick={ () => this.changePage(this.props.blog.pageTotal)} > last ▶ </div>;
+      }
+    }
 
-    paginationMainRender = ()=> {
-        return (
+    paginationMainRender = () => (
         <div className={style.paginationMainRender} >
-            {exenv.canUseDOM ?  this.firstPage() : <p>loading</p> }
+            {exenv.canUseDOM ? this.firstPage() : <p>loading</p> }
 
             <PaginationMainContainer />
 
-            {exenv.canUseDOM ?  this.lastPage() : <p>loading</p> }
+            {exenv.canUseDOM ? this.lastPage() : <p>loading</p> }
 
         </div>
     )
-}
-    render(){
-        return (<div className={style.pagination_nav}  >
+
+    render() {
+      return (<div className={style.pagination_nav} >
                     <PaginationDetailsContainer
                     className={style.pagination_details}
                     />
                     {
-                        this.props.blog.pageTotal > 1 ?
-                            this.paginationMainRender()
-                            :
-                            null
+                        this.props.blog.pageTotal > 1
+                          ? this.paginationMainRender()
+                          : null
 
                     }
                 </div>
-        )
+      );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-      blog:  state.blogReducer
-    }
-  }
+const mapStateToProps = state => ({
+  blog: state.blogReducer,
+});
 
-const paginationContainer = connect(mapStateToProps)(Pagination)
-export default storeWrapper(paginationContainer)
+const paginationContainer = connect(mapStateToProps)(Pagination);
+export default storeWrapper(paginationContainer);

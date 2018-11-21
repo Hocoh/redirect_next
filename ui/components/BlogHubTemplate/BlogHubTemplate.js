@@ -1,32 +1,28 @@
-import React, {Component} from "react";
-import style from "./BlogHubTemplate.module.css";
-import Link from 'next/link';
+import { Component } from 'react';
 
-import storeWrapper from "../../HOC/storeWrapper/storeWrapper"
 import { connect } from 'react-redux';
 
-import Router from 'next/router'
+import Router from 'next/router';
 
-import exenv from "exenv"
+import exenv from 'exenv';
+import storeWrapper from '../../HOC/storeWrapper/storeWrapper';
+import style from './BlogHubTemplate.module.css';
 
-import PaginationContainer from "./utils/Pagination/Pagination"
+import PaginationContainer from './utils/Pagination/Pagination';
 
 class BlogHubTemplate extends Component {
-
-
-
-  componentDidMount(){
-    console.log("router push reached: ", window.location.href )
+  componentDidMount() {
+    console.log('router push reached: ', window.location.href);
     if (exenv.canUseDOM) {
-      if(this.props.blog.pageTargeted > this.props.blog.pageTotal){
+      if (this.props.blog.pageTargeted > this.props.blog.pageTotal) {
         // return window.location.pathname = "/blog"
-        Router.push(decodeURIComponent(`/blog`));
+        Router.push(decodeURIComponent('/blog'));
       }
     }
   }
 
   redirectPost = (postCategory, postTitle) => {
-    console.log("here category and posts: ", postCategory, postTitle)
+    console.log('here category and posts: ', postCategory, postTitle);
     // return window.location.href = "http://localhost:3000/digital-marketing/website-digital-gq"
     // return window.location.pathname = `/${postCategory}/${postTitle}`
 
@@ -34,16 +30,14 @@ class BlogHubTemplate extends Component {
     // <Link href={{pathname:`/${postCategory}/${postTitle}`}}></Link>
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className={style.blog_template_grid} >
   <div className={style.posts_grid}>
     {
 
 
-
-      this.props.blog.postsFetched ? this.props.blog.postsFetched.map((post,index)=> {
-          return(
+      this.props.blog.postsFetched && this.props.blog.postsFetched.length > 0 ? this.props.blog.postsFetched.map((post, index) => (
             <article className={style.post_container} key={index}>
           <img
           onClick={() => this.redirectPost(post.category, post.text.title)}
@@ -57,29 +51,23 @@ class BlogHubTemplate extends Component {
           className={style.post_headline} > {post.headline}
         </h3>
           </article>
-        )
-        })
-        :
-    <p> blog loading </p>
-
-
+      ))
+        : <p> blog loading </p>
 
 
     }
   </div>
     <div className={style.pagination} >
-  <PaginationContainer/>
+       <PaginationContainer/>
     </div>
     </div>
-  )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    blog:  state.blogReducer
-  }
-}
+const mapStateToProps = state => ({
+  blog: state.blogReducer,
+});
 
-const blogHubContainer = connect(mapStateToProps)(BlogHubTemplate)
-export default storeWrapper(blogHubContainer)
+const blogHubContainer = connect(mapStateToProps)(BlogHubTemplate);
+export default storeWrapper(blogHubContainer);

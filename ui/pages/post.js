@@ -1,57 +1,57 @@
-import { Component } from 'react'
+import { Component } from 'react';
 
-import storeWrapper from "../HOC/storeWrapper/storeWrapper"
-import PostTemplate from "../components/PostTemplate/PostTemplate"
+import Head from 'next/head';
+import axios from 'axios';
+import storeWrapper from '../HOC/storeWrapper/storeWrapper';
+import PostTemplate from '../components/PostTemplate/PostTemplate';
 
 
-import Head from 'next/head'
-
-import axios from "axios"
 // import {connect} from 'react-redux';
 
-const localImage =  "/static/assets/illustration/city_night.jpg"
+const localImage = '/static/assets/illustration/city_night.jpg';
 
- class Post extends Component {
-
+class Post extends Component {
   state= {
-    category:"",
-    date:"" ,
-    headline:"",
-    abstract:"here an abstract",
-    image_id:"",
-    image_name:"",
-    title:"",
-    body:""
+    category: '',
+    date: '',
+    headline: '',
+    abstract: 'here an abstract',
+    image_id: '',
+    image_name: '',
+    title: '',
+    body: '',
   }
 
-    componentDidMount(){
-      var postFullPath = decodeURIComponent(window.location.pathname).substr(1);
-      var slashIndex=  (postFullPath.indexOf('/')) +1;
-      var articleTitle =  postFullPath.substr(slashIndex)
+  componentDidMount() {
+    const postFullPath = decodeURIComponent(window.location.pathname).substr(1);
+    const slashIndex = (postFullPath.indexOf('/')) + 1;
+    const articleTitle = postFullPath.substr(slashIndex);
 
-      let scope = this;
-      const url =decodeURIComponent(`https://hoco-server.herokuapp.com/post/${articleTitle}`)
+    const scope = this;
+    const url = decodeURIComponent(`https://hoco-server.herokuapp.com/post/${articleTitle}`);
 
-      axios.get(url)
-          .then(function (res) {
-              var {date, headline, abstract, image_id, image_name, text: { title, body}, category} = res.data[0]
-              scope.setState({
-                date,
-                headline,
-                abstract,
-                image_id,
-                image_name,
-                title,
-                body,
-                category
-              })
-            })
-          .catch(function (error) {
-               (error);
-          });
-    }
+    axios.get(url)
+      .then((res) => {
+        const {
+          date, headline, abstract, image_id, image_name, text: { title, body }, category,
+        } = res.data[0];
+        scope.setState({
+          date,
+          headline,
+          abstract,
+          image_id,
+          image_name,
+          title,
+          body,
+          category,
+        });
+      })
+      .catch((error) => {
+        (error);
+      });
+  }
 
-  PostTemplate = ()=> (
+  PostTemplate = () => (
     <div>
         {this.state.body}
     </div>
@@ -106,9 +106,9 @@ const localImage =  "/static/assets/illustration/city_night.jpg"
 
     </Head>
         <div>
-              {this.state.body ?
-                  // <div> here a blog </div>
-              <PostTemplate
+              {this.state.body
+              // <div> here a blog </div>
+                ? <PostTemplate
                   category={this.state.category}
                   date={this.state.date}
                   headline={this.state.headline}
@@ -118,13 +118,12 @@ const localImage =  "/static/assets/illustration/city_night.jpg"
                   title={this.state.title}
                   body={this.state.body}
               />
-                :
-                <div> loading ...</div>}
+                : <div> loading ...</div>}
         </div>
 
         </div>
-    )
+    );
   }
 }
 
-export default storeWrapper(Post)
+export default storeWrapper(Post);
