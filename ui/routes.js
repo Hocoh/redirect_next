@@ -6,7 +6,7 @@ const routes = [
   //   prettyUrl: '/products/1',
   // },
   {
-    page: 'blog',
+    page: '/',
     // prettyUrl: '/products/:productId',
     prettyUrl: ({ productId = '' }) => (`/products/${productId}`),
     prettyPatterns: [
@@ -17,7 +17,7 @@ const routes = [
     ],
   },
   {
-    page: 'ProductListPage',
+    page: 'post',
     prettyUrl: ({ categoryId = '' }) => (`/categories/${categoryId}`),
     prettyPatterns: [
       {
