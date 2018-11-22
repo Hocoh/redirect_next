@@ -1,7 +1,7 @@
-import blogCustomLayout from "./customLayout/blogCustomLayout/blogCustomLayout"
-import postCustomLayout from "./customLayout/postCustomLayout/postCustomLayout" 
+import blogCustomLayout from './customLayout/blogCustomLayout/blogCustomLayout';
+import postCustomLayout from './customLayout/postCustomLayout/postCustomLayout';
 
-export { 
-    blogCustomLayout,
-    postCustomLayout
-}
+export {
+  blogCustomLayout,
+  postCustomLayout,
+};

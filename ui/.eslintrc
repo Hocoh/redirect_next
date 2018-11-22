@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "extends" : [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb-base"
+  ],
+  "rules" : {
+    "arrow-body-style" : "warn",
+    "global-require": ["off"],
+    "react/prop-types": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "no-debugger":"off",
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "consistent-return": "off",
+    "class-methods-use-this": "off"
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.0.0",
+      "flowVersion": "0.53"
+    },
+    "propWrapperFunctions": [ "forbidExtraProps" ]
+  }
+}
